@@ -3,6 +3,7 @@
 *by [Dave Herman](http://blog.mozilla.com/dherman)*
 
 * *What?*  Cooperative tasks for JS + [generators](https://developer.mozilla.org/en/New_in_JavaScript_1.7).
+* *Why?*   Who said I/O in JS had to be hard?
 * *Where?* [http://dherman.github.com/jstask](http://dherman.github.com/jstask)
 * *How?*   [http://dherman.github.com/jstask/doc/api.html](http://dherman.github.com/jstask/doc/api.html)
 
