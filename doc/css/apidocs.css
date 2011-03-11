@@ -1,0 +1,176 @@
+.module-detail > div.name {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.module-detail a {
+    color: #444;
+}
+
+.module-detail .invocation img {
+    float: right;
+    opacity: .3;
+}
+
+.module-detail .invocation img:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+
+.module-detail .invocation > a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.module-detail .example pre {
+    width: 100%;
+    padding: .5em;
+    margin: 2em;
+}
+
+.module-detail .heading {
+    background-color: aliceBlue;
+    border-top: 2px solid #e0effd;
+    font-size: 1.5em;
+    color: #003595;
+    padding: .4em;
+    margin-top: 1em;
+    margin-bottom: .8em;
+}
+
+.one-property .invocation, .one-function .invocation {
+    font-family: "andale mono",monospace;
+    font-size: 1.1em;
+    border: 1px solid #558adb;
+    background-color: #E0EFFD;
+    margin-left: .1em;
+    padding: .4em;
+}
+
+.one-property .invocation .propName, .one-function .invocation .funcName {
+    font-weight: bold;
+}
+
+.one-property .description, .one-function .description, .one-function .parameters, .one-function .returnvalue {
+    margin: 1em;
+    margin-left: 1em;
+}
+
+.one-function {
+    margin-bottom: 1em;
+}
+
+.one-function .type, .one-property .type {
+    color: gray;
+    margin-right: .65em;
+}
+
+.one-function .paramdoc {
+    margin-top: 1em;
+}
+
+.one-function .paramdoc, .paramdoc tr, .one-function .paramdoc td {
+    border: none;
+    padding: 0;
+    vertical-align: top;
+}
+
+.one-function .paramdoc td p {
+    margin-bottom: .7em;
+}
+
+.one-function .paramdoc .paramname {
+    font-size: 1.1em;
+    font-style: italic;
+    width: 6em;
+}
+
+.littleheading {
+    color: #C63717;
+}
+
+.functions > .littleheading, .class-detail > .littleheading, .properties > .littleheading {
+    font-size: 1.2em;
+    margin-bottom: .3em;
+    margin-top: .8em;
+    line-height: 1em;
+}
+
+.constructor > div.littleheading {
+    color: #C63717;
+    font-size: 1.2em;
+    margin-bottom: .3em;
+    margin-top: .8em;
+    line-height: 1em;
+}
+
+.class-detail .littleheading {
+    margin: 1em 0 1em;
+}
+
+.class-detail {
+    margin-left: 2em;
+}
+
+.class-detail div.classname {
+    color: #C63717;
+    font-size: 1.4em;
+    margin-bottom: .3em;
+    margin-top: .8em;
+    line-height: 1em;
+}
+
+.full-api .filter_container {
+    width: 100%;
+    background-color: #444;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    align: center;
+    padding: 10px;
+    margin: 1em;
+    height: 3em;
+}
+
+.full-api .prompt {
+    color:#eee;
+    font-style: italic;
+    font-size: 1.2em;
+    padding-right: 10px;
+    margin-top: .4em;
+}
+
+.filter_container input {
+    border: 0;
+    padding: .5em;
+    border-radius: .3em;
+    -moz-border-radius: .3em;
+    -webkit-border-radius: .3em;
+    background-color: #fff;
+}
+
+.full-api .filter_container > * {
+    float: left;
+}
+
+.full-api .filter_container .clear {
+    margin: 0;
+    width: 1em;
+    height: 1.5em;
+    padding: .1em .3em 0 .3em;
+    text-align: center;
+    vertical-align: center;
+    background-color: #ccc;
+    border-radius: .8em;
+    -moz-border-radius: .8em;
+    -webkit-border-radius: .8em;
+    font-size: .8em;
+    font-weight: bold;
+    margin-top: .65em;
+    margin-left: .7em;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+

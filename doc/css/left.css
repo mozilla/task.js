@@ -1,0 +1,53 @@
+#left-column div.site-title {
+    margin: .8em .4em .8em .4em;
+    height: 4em;
+}
+
+#left-column div.site-title h1 {
+    color: #222;
+    font-family: MetaBlack,'Trebuchet MS',sans-serif;
+    font-weight: bold;
+    margin-top: .4em;
+    margin-left: .1em;
+}
+
+#left-column div.site-title > * {
+    float:left;
+}
+
+#left-column h1 {
+    font-size: 2.571em;
+}
+
+#left-column .toc {
+    background-color: #e0effd;
+}
+
+#toc {
+    color: #003595;
+    text-decoration: none;
+    background-color: #e0effd;
+    border: .2em solid #e0effd;
+}
+
+/* now for section highlighting & indenting */
+#toc div.title, #toc div.entry {
+    padding-left: 10px;
+    padding-top: .1em;
+    padding-bottom: .1em;
+}
+
+#toc > div.section > div.title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#toc > div.section > div.section > div.title {
+    font-size: 1.1em;
+}
+
+#toc > div.section > div.section > div.entry {
+    background-color: aliceBlue;
+    padding-left: 30px;
+}
+
