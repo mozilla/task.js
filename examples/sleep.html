@@ -1,0 +1,22 @@
+<html>
+<head><title>jsTask examples: sleep</title></head>
+<script type="application/javascript;version=1.8" src="../lib/jstask.js"></script>
+<script type="application/javascript;version=1.8" src="../lib/jstask-dom.js"></script>
+<script type="application/javascript;version=1.8">
+function go() {
+    var { spawn, DOM: { sleep } } = jsTask;
+
+    var out = document.getElementById("out");
+
+    spawn(function() {
+        out.innerHTML += "sleeping for 1sec...\n";
+        yield sleep(1000);
+        out.innerHTML += "woke up!\n";
+    });
+}
+</script>
+<body onload="go()">
+<pre style="border: solid 1px black; width: 300px; height: 200px;" id="out">
+</pre>
+</body>
+</html>
