@@ -1,12 +1,10 @@
 # jstask.js
 
-[http://dherman.github.com/jstask](http://dherman.github.com/jstask)
-
 *by [Dave Herman](http://blog.mozilla.com/dherman)*
 
-Cooperative tasks for JS + [generators](https://developer.mozilla.org/en/New_in_JavaScript_1.7).
-
-[API Documentation](http://dherman.github.com/jstask/doc/api.html)
+* *What?*  Cooperative tasks for JS + [generators](https://developer.mozilla.org/en/New_in_JavaScript_1.7).
+* *Where?* [http://dherman.github.com/jstask](http://dherman.github.com/jstask)
+* *How?*   [http://dherman.github.com/jstask/doc/api.html](http://dherman.github.com/jstask/doc/api.html)
 
 jsTask provides an **automatic task scheduler** along with a library of first-class, synchronizable
 events, making it easy to do **I/O without callbacks**.
