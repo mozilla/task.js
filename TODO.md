@@ -13,3 +13,4 @@
 * test suite
 * more API docs
 * more DOM-sync abstractions
+* jQuery-like `ready` function that takes a generator function
