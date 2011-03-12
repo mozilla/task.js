@@ -36,7 +36,7 @@ instead of, say, this code:
                        function(e) { failure(e) });
     
     function success() {
-        if (!timedOut && typeof foo === "string" && typeof bar === "string") {
+        if (typeof foo === "string" && typeof bar === "string") {
             cancelTimeout(tid);
             xhr1 = null;
             xhr2 = null;
