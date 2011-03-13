@@ -19,28 +19,30 @@
 
   </script>
 
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Kreon" />
   <style type="text/css">
     body {
       margin-top: 1.0em;
       background-color: #fff;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
+      font-family: Georgia, Helvetica, Arial, FreeSans, san-serif;
       color: #000000;
     }
     #container {
       margin: 0 auto;
       width: 700px;
     }
-    h1 { font-size: 3.8em; color: #003595; /*#e13227;*/ margin-bottom: 3px; }
+    h1 { font-size: 3.8em; color: #005ecf; /*#e13227;*/ margin-bottom: 3px; font-family: Kreon, serif; }
     h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #003595; /*#e13227;*/ }
-    h3 { text-align: center; color: #003595; /*#e13227;*/ }
-    a { color: #003595; /*#e13227;*/ }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    h1 a { text-decoration: none; color: #005ecf; }
+    h2 { font-size: 1.5em; color: #005ecf; /*#e13227;*/ font-family: Futura, sans-serif; font-weight: normal; }
+    h3 { text-align: center; color: #005ecf; /*#e13227;*/ }
+    a { color: #005ecf; /*#e13227;*/ }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-family: Futura, sans-serif; /*font-style: italic;*/ }
     .download { float: right; }
     pre { background: #000; color: #fff; padding: 15px; -moz-border-radius: .8em; -webkit-border-radius: .8em; }
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
+    .footer { text-align:center; padding-top:30px; /*font-style: italic;*/ }
   </style>
 </head>
 
@@ -49,21 +51,23 @@
 
   <div id="container">
 
+<!--
     <div class="download">
       <a href="http://github.com/dherman/jstask/zipball/master">
         <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
       <a href="http://github.com/dherman/jstask/tarball/master">
         <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
     </div>
+-->
 
     <h1>
-      <img style="float: left; margin-right: 10px;" width="64" height="64" src="ball-clock.jpg" />
-      <a href="http://github.com/dherman/jstask">jstask</a>
+      <img style="float: left; margin-right: 15px;" width="59" height="64" src="sunburst-clock.jpg" />
+      <a href="http://github.com/dherman/jstask">jsTask</a>
       <!-- <span class="small">by <a href="http://github.com/dherman">dherman</a></span> -->
     </h1>
 
     <div class="description">
-      Cooperative tasks for JS + <a href="https://developer.mozilla.org/en/New_in_JavaScript_1.7">generators</a>
+      cooperative concurrency for JS + <a href="https://developer.mozilla.org/en/New_in_JavaScript_1.7">generators</a>
     </div>
 
 <!--
@@ -72,23 +76,29 @@
 -->
 
 <h2>Documentation</h2>
-<p><a href="doc/api.html">API</a></p>
+<p>read the <a href="doc/api.html">API documentation</a>.</p>
 
 
     <h2>Download</h2>
     <p>
-      You can download this project in either
+      jsTask is under development.
+    </p>
+<!--
+    <p>
+      you can download a snapshot in
       <a href="http://github.com/dherman/jstask/zipball/master">zip</a> or
       <a href="http://github.com/dherman/jstask/tarball/master">tar</a> formats.
     </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
+-->
+    <p>get the source by running:
       <pre>$ git clone git://github.com/dherman/jstask</pre>
     </p>
 
+<!--
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/dherman/jstask">dherman/jstask</a>
     </div>
+-->
 
   </div>
 
