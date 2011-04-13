@@ -11,11 +11,11 @@ function go() {
     spawn(function() {
         out.innerHTML = "reading...\n";
         try {
-            var [ f1, f2 ] = yield join(read("sleep.html"),
-                                        read("read.html"));
+            var [ f1, f2 ] = yield join(read("sleep.html"), read("read.html"));
             out.innerHTML += "sleep.html: " + (f1.responseText.length) + "\n";
             out.innerHTML += "read.html: " + (f2.responseText.length) + "\n";
         } catch (e) {
+            e.stack.split(/\n/).forEach(function(line) { console.log(line) });
             out.innerHTML = "error: " + e;
         }
     });
