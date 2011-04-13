@@ -9,19 +9,16 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/right.css" />
   <link rel="stylesheet" type="text/css" media="all" href="css/apidocs.css" />
   <link href="css/prettify.css" type="text/css" rel="stylesheet" />
-  <title>jsTask Documentation</title>
+  <title>task.js Documentation</title>
   <script type="text/javascript">
-
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-22002408-1']);
   _gaq.push(['_trackPageview']);
-
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
   </script>
 </head>
 <body>
@@ -29,16 +26,16 @@
   <div id="columns">
   <div id="left-column">
     <div class="site-title"> 
-      <h1>jsTask</h1>
+      <h1>task.js</h1>
     </div>
     <div id="toc">
       <div class="section">
         <div class="title" id="dev-guide-header">API Documentation</div>
                 <div class="section">
-          <div class="title">Module: jsTask</div>
+          <div class="title">Module: task</div>
           <div class="entry link">Classes</div><div class="entry link">Types</div><div class="entry link">Functions</div><div class="entry link">Constants</div></div>
                 <div class="section">
-          <div class="title">Module: jsTask.DOM</div>
+          <div class="title">Module: task.dom</div>
           <div class="entry link">Classes</div><div class="entry link">Functions</div></div>
         </div>
     </div>
@@ -46,7 +43,7 @@
   <div id="main-content">
     <div id="right-column">
             <div class="module-detail">
-        <div class="name"><span class="module">jsTask</span></div>
+        <div class="name"><span class="module">task</span></div>
                 <div class="classes">
           <div class="heading">Classes</div>
                     <div class="class-detail">
@@ -122,7 +119,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">boolean</span><span class="varname">sync</span>.<span class="funcName">isReady</span>()</span>
+                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">onSync</span>()</span>
                 </div>
                 <div class="description"></div>
                 </div>
@@ -134,7 +131,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">fulfill</span>(<span class="params"><span class="type">A</span><span class="name">x</span></span><span class="params">, <span class="type">boolean</span><span class="name">exception</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">fulfill</span>(<span class="params"><span class="type">Signal</span><span class="name">signal</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -142,11 +139,7 @@
                   <table class="paramdoc">
                     <tbody>
                                             <tr>
-                        <td class="paramname">x</td>
-                        <td class="paramdesc"></td>
-                      </tr>
-                                            <tr>
-                        <td class="paramname">exception</td>
+                        <td class="paramname">signal</td>
                         <td class="paramdesc"></td>
                       </tr>
                       </tbody>
@@ -155,7 +148,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">block</span>(<span class="params"><span class="type">Target</span><span class="name">target</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">return</span>(<span class="params"><span class="type">any</span><span class="name">value</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -163,7 +156,7 @@
                   <table class="paramdoc">
                     <tbody>
                                             <tr>
-                        <td class="paramname">target</td>
+                        <td class="paramname">value</td>
                         <td class="paramdesc"></td>
                       </tr>
                       </tbody>
@@ -172,7 +165,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">unblock</span>(<span class="params"><span class="type">Target</span><span class="name">target</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">throw</span>(<span class="params"><span class="type">any</span><span class="name">value</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -180,7 +173,41 @@
                   <table class="paramdoc">
                     <tbody>
                                             <tr>
-                        <td class="paramname">target</td>
+                        <td class="paramname">value</td>
+                        <td class="paramdesc"></td>
+                      </tr>
+                      </tbody>
+                  </table>
+                </div>
+                </div>
+                            <div class="one-function">
+                <div class="invocation">   
+                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">block</span>(<span class="params"><span class="type">Waiter</span><span class="name">waiter</span></span>)</span>
+                </div>
+                <div class="description"></div>
+                                <div class="parameters">
+                  <div class="littleheading">Parameters:</div>
+                  <table class="paramdoc">
+                    <tbody>
+                                            <tr>
+                        <td class="paramname">waiter</td>
+                        <td class="paramdesc"></td>
+                      </tr>
+                      </tbody>
+                  </table>
+                </div>
+                </div>
+                            <div class="one-function">
+                <div class="invocation">   
+                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">unblock</span>(<span class="params"><span class="type">Waiter</span><span class="name">waiter</span></span>)</span>
+                </div>
+                <div class="description"></div>
+                                <div class="parameters">
+                  <div class="littleheading">Parameters:</div>
+                  <table class="paramdoc">
+                    <tbody>
+                                            <tr>
+                        <td class="paramname">waiter</td>
                         <td class="paramdesc"></td>
                       </tr>
                       </tbody>
@@ -406,7 +433,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">task</span>.<span class="funcName">notify</span>(<span class="params"><span class="type">Sync</span><span class="name">sync</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">task</span>.<span class="funcName">notify</span>(<span class="params"><span class="type">Sync</span><span class="name">sync</span></span><span class="params">, <span class="type">Signal</span><span class="name">signal</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -415,6 +442,10 @@
                     <tbody>
                                             <tr>
                         <td class="paramname">sync</td>
+                        <td class="paramdesc"></td>
+                      </tr>
+                                            <tr>
+                        <td class="paramname">signal</td>
                         <td class="paramdesc"></td>
                       </tr>
                       </tbody>
@@ -481,7 +512,7 @@
           <div class="heading">Types</div>
                     <div class="one-property">
             <div class="invocation">   
-              <span>type <span class="type">Target</span>: <span class="type">object</span></span>
+              <span>type <span class="type">Waiter</span>: <span class="type">object</span></span>
             </div>
             <div class="description"></div>
           </div>
@@ -496,7 +527,7 @@
           <div class="heading">Functions</div>
                     <div class="one-function">
             <div class="invocation">   
-              <span><span class="type">jsTask</span><span class="funcName">uninstall</span>()</span>
+              <span><span class="type">task</span><span class="funcName">uninstall</span>()</span>
             </div>
             <div class="description"></div>
             </div>          
@@ -587,7 +618,7 @@
           </div>
         </div>
             <div class="module-detail">
-        <div class="name"><span class="module">jsTask.DOM</span></div>
+        <div class="name"><span class="module">task.dom</span></div>
                 <div class="classes">
           <div class="heading">Classes</div>
                     <div class="class-detail">
@@ -695,7 +726,7 @@
   </div>
   </div>
   <div id="footer">
-    <span class="full-name">jsTask</span> as of commit <span class="_version"><!-- FIXME: version --></span>
+    <span class="full-name">task.js</span> as of commit <span class="_version"><!-- FIXME: version --></span>
   </div>
 </div>
 </body>
