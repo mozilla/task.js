@@ -18,7 +18,7 @@ function go() {
                 out.innerHTML += "gonna try to work in a sec\n";
                 yield sleep(1000);
                 out.innerHTML += "ready to work\n";
-            }).taskSync.timeout(500);
+            }).toWait().timeout(500);
         } catch (e) {
             out.innerHTML += "never mind; " + e.message + "\n";
         }
