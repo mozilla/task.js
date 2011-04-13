@@ -47,12 +47,12 @@
                 <div class="classes">
           <div class="heading">Classes</div>
                     <div class="class-detail">
-            <div class="classname"><span class="name">Sync</span></div>
+            <div class="classname"><span class="name">Wait</span></div>
             <div class="docs"></div>
                         <div class="constructor">
               <div class="one-function">
-                <div id="Sync" class="invocation">   
-                  <span><span class="funcName">Sync</span>(<span class="params"><span class="type">object</span><span class="name">methods</span></span>)</span>
+                <div id="Wait" class="invocation">   
+                  <span><span class="funcName">Wait</span>(<span class="params"><span class="type">object</span><span class="name">methods</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -72,13 +72,13 @@
               <div class="littleheading">Class properties</div>
                             <div class="one-property">
                 <div class="invocation">   
-                  <span><span class="type">Sync</span><span class="varname">Sync</span>.<span class="funcName">ALWAYS</span></span>
+                  <span><span class="type">Wait</span><span class="varname">Wait</span>.<span class="funcName">ALWAYS</span></span>
                 </div>
                 <div class="description"></div>
               </div>
                             <div class="one-property">
                 <div class="invocation">   
-                  <span><span class="type">Sync</span><span class="varname">Sync</span>.<span class="funcName">NEVER</span></span>
+                  <span><span class="type">Wait</span><span class="varname">Wait</span>.<span class="funcName">NEVER</span></span>
                 </div>
                 <div class="description"></div>
               </div>
@@ -87,7 +87,7 @@
               <div class="littleheading">Class functions</div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">Sync</span><span class="varname">Sync</span>.<span class="funcName">from</span>(<span class="params"><span class="type">any</span><span class="name">x</span></span>)</span>
+                  <span><span class="type">Wait</span><span class="varname">Wait</span>.<span class="funcName">from</span>(<span class="params"><span class="type">any</span><span class="name">x</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -107,31 +107,31 @@
               <div class="littleheading">Methods</div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">onCancel</span>()</span>
+                  <span><span class="type">void</span><span class="varname">wait</span>.<span class="funcName">onCancel</span>()</span>
                 </div>
                 <div class="description"></div>
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">onReady</span>()</span>
+                  <span><span class="type">void</span><span class="varname">wait</span>.<span class="funcName">onReady</span>()</span>
                 </div>
                 <div class="description"></div>
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">onSync</span>()</span>
+                  <span><span class="type">void</span><span class="varname">wait</span>.<span class="funcName">onBlock</span>()</span>
                 </div>
                 <div class="description"></div>
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">cancel</span>()</span>
+                  <span><span class="type">void</span><span class="varname">wait</span>.<span class="funcName">cancel</span>()</span>
                 </div>
                 <div class="description"></div>
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">fulfill</span>(<span class="params"><span class="type">Signal</span><span class="name">signal</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">wait</span>.<span class="funcName">fulfill</span>(<span class="params"><span class="type">Signal</span><span class="name">signal</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -148,7 +148,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">return</span>(<span class="params"><span class="type">any</span><span class="name">value</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">wait</span>.<span class="funcName">return</span>(<span class="params"><span class="type">any</span><span class="name">value</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -165,7 +165,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">throw</span>(<span class="params"><span class="type">any</span><span class="name">value</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">wait</span>.<span class="funcName">throw</span>(<span class="params"><span class="type">any</span><span class="name">value</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -182,7 +182,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">block</span>(<span class="params"><span class="type">Waiter</span><span class="name">waiter</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">wait</span>.<span class="funcName">block</span>(<span class="params"><span class="type">Waiter</span><span class="name">waiter</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -199,7 +199,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">sync</span>.<span class="funcName">unblock</span>(<span class="params"><span class="type">Waiter</span><span class="name">waiter</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">wait</span>.<span class="funcName">unblock</span>(<span class="params"><span class="type">Waiter</span><span class="name">waiter</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -216,7 +216,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">Sync</span><span class="varname">sync</span>.<span class="funcName">or</span>(<span class="params"><span class="type">Sync</span><span class="name">rest</span></span>)</span>
+                  <span><span class="type">Wait</span><span class="varname">wait</span>.<span class="funcName">or</span>(<span class="params"><span class="type">Wait</span><span class="name">rest</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -233,7 +233,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">Sync</span><span class="varname">sync</span>.<span class="funcName">and</span>(<span class="params"><span class="type">Sync</span><span class="name">rest</span></span>)</span>
+                  <span><span class="type">Wait</span><span class="varname">wait</span>.<span class="funcName">and</span>(<span class="params"><span class="type">Wait</span><span class="name">rest</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -250,7 +250,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">Sync</span><span class="varname">sync</span>.<span class="funcName">guard</span>(<span class="params"><span class="type">function</span><span class="name">onsuccess</span></span><span class="params">, <span class="type">function</span><span class="name">onfailure</span></span>)</span>
+                  <span><span class="type">Wait</span><span class="varname">wait</span>.<span class="funcName">guard</span>(<span class="params"><span class="type">function</span><span class="name">onsuccess</span></span><span class="params">, <span class="type">function</span><span class="name">onfailure</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -271,7 +271,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">Sync</span><span class="varname">sync</span>.<span class="funcName">with</span>(<span class="params"><span class="type">function</span><span class="name">onsuccess</span></span><span class="params">, <span class="type">function</span><span class="name">onfailure</span></span>)</span>
+                  <span><span class="type">Wait</span><span class="varname">wait</span>.<span class="funcName">with</span>(<span class="params"><span class="type">function</span><span class="name">onsuccess</span></span><span class="params">, <span class="type">function</span><span class="name">onfailure</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -293,12 +293,12 @@
               </div>
             </div>
                     <div class="class-detail">
-            <div class="classname"><span class="name">TaskSync</span></div>
+            <div class="classname"><span class="name">TaskWait</span></div>
             <div class="docs"></div>
                         <div class="constructor">
               <div class="one-function">
-                <div id="TaskSync" class="invocation">   
-                  <span><span class="funcName">TaskSync</span>(<span class="params"><span class="type">Task</span><span class="name">task</span></span>)</span>
+                <div id="TaskWait" class="invocation">   
+                  <span><span class="funcName">TaskWait</span>(<span class="params"><span class="type">Task</span><span class="name">task</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -316,12 +316,12 @@
             </div>
             </div>
                     <div class="class-detail">
-            <div class="classname"><span class="name">JoinSync</span></div>
+            <div class="classname"><span class="name">Join</span></div>
             <div class="docs"></div>
                         <div class="constructor">
               <div class="one-function">
-                <div id="JoinSync" class="invocation">   
-                  <span><span class="funcName">JoinSync</span>(<span class="params"><span class="type">array</span><span class="name">syncs</span></span>)</span>
+                <div id="Join" class="invocation">   
+                  <span><span class="funcName">Join</span>(<span class="params"><span class="type">array</span><span class="name">waits</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -329,7 +329,7 @@
                   <table class="paramdoc">
                     <tbody>
                                             <tr>
-                        <td class="paramname">syncs</td>
+                        <td class="paramname">waits</td>
                         <td class="paramdesc"></td>
                       </tr>
                       </tbody>
@@ -339,12 +339,12 @@
             </div>
             </div>
                     <div class="class-detail">
-            <div class="classname"><span class="name">ChoiceSync</span></div>
+            <div class="classname"><span class="name">Choice</span></div>
             <div class="docs"></div>
                         <div class="constructor">
               <div class="one-function">
-                <div id="ChoiceSync" class="invocation">   
-                  <span><span class="funcName">ChoiceSync</span>(<span class="params"><span class="type">array</span><span class="name">syncs</span></span>)</span>
+                <div id="Choice" class="invocation">   
+                  <span><span class="funcName">Choice</span>(<span class="params"><span class="type">array</span><span class="name">waits</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -352,7 +352,7 @@
                   <table class="paramdoc">
                     <tbody>
                                             <tr>
-                        <td class="paramname">syncs</td>
+                        <td class="paramname">waits</td>
                         <td class="paramdesc"></td>
                       </tr>
                       </tbody>
@@ -362,12 +362,12 @@
             </div>
             </div>
                     <div class="class-detail">
-            <div class="classname"><span class="name">GuardSync</span></div>
+            <div class="classname"><span class="name">GuardedWait</span></div>
             <div class="docs"></div>
                         <div class="constructor">
               <div class="one-function">
-                <div id="GuardSync" class="invocation">   
-                  <span><span class="funcName">GuardSync</span>(<span class="params"><span class="type">Sync</span><span class="name">sync</span></span><span class="params">, <span class="type">function</span><span class="name">onsuccess</span></span><span class="params">, <span class="type">function</span><span class="name">onfailure</span></span>)</span>
+                <div id="GuardedWait" class="invocation">   
+                  <span><span class="funcName">GuardedWait</span>(<span class="params"><span class="type">Wait</span><span class="name">wait</span></span><span class="params">, <span class="type">function</span><span class="name">onsuccess</span></span><span class="params">, <span class="type">function</span><span class="name">onfailure</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -375,7 +375,7 @@
                   <table class="paramdoc">
                     <tbody>
                                             <tr>
-                        <td class="paramname">sync</td>
+                        <td class="paramname">wait</td>
                         <td class="paramdesc"></td>
                       </tr>
                                             <tr>
@@ -433,7 +433,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">void</span><span class="varname">task</span>.<span class="funcName">notify</span>(<span class="params"><span class="type">Sync</span><span class="name">sync</span></span><span class="params">, <span class="type">Signal</span><span class="name">signal</span></span>)</span>
+                  <span><span class="type">void</span><span class="varname">task</span>.<span class="funcName">notify</span>(<span class="params"><span class="type">Wait</span><span class="name">wait</span></span><span class="params">, <span class="type">Signal</span><span class="name">signal</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -441,7 +441,7 @@
                   <table class="paramdoc">
                     <tbody>
                                             <tr>
-                        <td class="paramname">sync</td>
+                        <td class="paramname">wait</td>
                         <td class="paramdesc"></td>
                       </tr>
                                             <tr>
@@ -495,7 +495,7 @@
                 </div>
                             <div class="one-function">
                 <div class="invocation">   
-                  <span><span class="type">Sync</span><span class="varname">task</span>.<span class="funcName">toSync</span>()</span>
+                  <span><span class="type">Wait</span><span class="varname">task</span>.<span class="funcName">toWait</span>()</span>
                 </div>
                 <div class="description"></div>
                 </div>
@@ -533,7 +533,7 @@
             </div>          
                     <div class="one-function">
             <div class="invocation">   
-              <span><span class="type">Sync</span><span class="funcName">join</span>(<span class="params"><span class="type">Sync</span><span class="name">...rest</span></span>)</span>
+              <span><span class="type">Wait</span><span class="funcName">join</span>(<span class="params"><span class="type">Wait</span><span class="name">...rest</span></span>)</span>
             </div>
             <div class="description"></div>
                         <div class="parameters">
@@ -550,7 +550,7 @@
             </div>          
                     <div class="one-function">
             <div class="invocation">   
-              <span><span class="type">Sync</span><span class="funcName">choose</span>(<span class="params"><span class="type">Sync</span><span class="name">...rest</span></span>)</span>
+              <span><span class="type">Wait</span><span class="funcName">choose</span>(<span class="params"><span class="type">Wait</span><span class="name">...rest</span></span>)</span>
             </div>
             <div class="description"></div>
                         <div class="parameters">
@@ -622,12 +622,12 @@
                 <div class="classes">
           <div class="heading">Classes</div>
                     <div class="class-detail">
-            <div class="classname"><span class="name">ReadSync</span></div>
+            <div class="classname"><span class="name">ReadWait</span></div>
             <div class="docs"></div>
                         <div class="constructor">
               <div class="one-function">
-                <div id="ReadSync" class="invocation">   
-                  <span><span class="funcName">ReadSync</span>(<span class="params"><span class="type">string</span><span class="name">url</span></span><span class="params">, <span class="type">string</span><span class="name">method</span></span>)</span>
+                <div id="ReadWait" class="invocation">   
+                  <span><span class="funcName">ReadWait</span>(<span class="params"><span class="type">string</span><span class="name">url</span></span><span class="params">, <span class="type">string</span><span class="name">method</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -649,12 +649,12 @@
             </div>
             </div>
                     <div class="class-detail">
-            <div class="classname"><span class="name">SleepSync</span></div>
+            <div class="classname"><span class="name">TimedWait</span></div>
             <div class="docs"></div>
                         <div class="constructor">
               <div class="one-function">
-                <div id="SleepSync" class="invocation">   
-                  <span><span class="funcName">SleepSync</span>(<span class="params"><span class="type">Uint32</span><span class="name">delay</span></span><span class="params">, <span class="type">boolean</span><span class="name">compensate</span></span>)</span>
+                <div id="TimedWait" class="invocation">   
+                  <span><span class="funcName">TimedWait</span>(<span class="params"><span class="type">Uint32</span><span class="name">delay</span></span><span class="params">, <span class="type">boolean</span><span class="name">compensate</span></span>)</span>
                 </div>
                 <div class="description"></div>
                                 <div class="parameters">
@@ -680,7 +680,7 @@
           <div class="heading">Functions</div>
                     <div class="one-function">
             <div class="invocation">   
-              <span><span class="type">ReadSync</span><span class="funcName">read</span>(<span class="params"><span class="type">string</span><span class="name">url</span></span><span class="params">, <span class="type">string</span><span class="name">method</span></span>)</span>
+              <span><span class="type">ReadWait</span><span class="funcName">read</span>(<span class="params"><span class="type">string</span><span class="name">url</span></span><span class="params">, <span class="type">string</span><span class="name">method</span></span>)</span>
             </div>
             <div class="description"></div>
                         <div class="parameters">
@@ -701,7 +701,7 @@
             </div>          
                     <div class="one-function">
             <div class="invocation">   
-              <span><span class="type">SleepSync</span><span class="funcName">sleep</span>(<span class="params"><span class="type">Uint32</span><span class="name">delay</span></span><span class="params">, <span class="type">boolean</span><span class="name">compensate</span></span>)</span>
+              <span><span class="type">TimedWait</span><span class="funcName">sleep</span>(<span class="params"><span class="type">Uint32</span><span class="name">delay</span></span><span class="params">, <span class="type">boolean</span><span class="name">compensate</span></span>)</span>
             </div>
             <div class="description"></div>
                         <div class="parameters">
