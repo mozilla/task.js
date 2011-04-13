@@ -1,10 +1,10 @@
 <html>
-<head><title>jsTask examples: sleep</title></head>
-<script type="application/javascript;version=1.8" src="../lib/jstask.js"></script>
-<script type="application/javascript;version=1.8" src="../lib/jstask-dom.js"></script>
+<head><title>task.js examples: sleep</title></head>
+<script type="application/javascript;version=1.8" src="../lib/task.js"></script>
+<script type="application/javascript;version=1.8" src="../lib/task.dom.js"></script>
 <script type="application/javascript;version=1.8">
 function go() {
-    var { spawn, DOM: { sleep } } = jsTask;
+    var { spawn, dom: { sleep } } = task;
 
     var out = document.getElementById("out");
 

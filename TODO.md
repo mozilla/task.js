@@ -4,7 +4,7 @@
 * enforce that `fulfill` does nothing if a task has been killed
 * `join` should use cycle (i.e., deadlock) detection
 * optionally have exceptions *not* kill join-peers but rather detach them from the blocked task
-* better PRNG for task scheduler and choice demand
+* better PRNG for task scheduler
 * object-detect for `WeakMap` instead of `ObjectMap` (or do we need strong `Map`?)
 * see if we can avoid object-valued maps altogether
 * make `Task`/`Sync` internals closure-private?

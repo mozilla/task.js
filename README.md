@@ -1,16 +1,16 @@
-# jstask.js
+# task.js
 
 *by [Dave Herman](http://blog.mozilla.com/dherman)*
 
 * *What?*  Cooperative concurrency for JS + [generators](https://developer.mozilla.org/en/New_in_JavaScript_1.7).
 * *Why?*   Who says JavaScript I/O has to be ugly?
-* *Where?* [http://dherman.github.com/jstask](http://dherman.github.com/jstask)
-* *How?*   [http://dherman.github.com/jstask/doc/api.html](http://dherman.github.com/jstask/doc/api.html)
+* *Where?* [http://dherman.github.com/taskjs](http://dherman.github.com/taskjs)
+* *How?*   [http://dherman.github.com/taskjs/doc/api.html](http://dherman.github.com/taskjs/doc/api.html)
 
-jsTask provides an **automatic task scheduler** along with a library of first-class, synchronizable
+task.js provides an **automatic task scheduler** along with a library of first-class, synchronizable
 events, making it easy to do **I/O without callbacks**.
 
-jsTask lets you write this code:
+task.js lets you write this code:
 
     spawn(function() {
         try {
