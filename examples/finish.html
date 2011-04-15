@@ -1,0 +1,27 @@
+<html>
+<head><title>task.js examples: finish</title></head>
+<script type="application/javascript;version=1.8" src="../lib/task.js"></script>
+<script type="application/javascript;version=1.8" src="../lib/task.dom.js"></script>
+<script type="application/javascript;version=1.8">
+function go() {
+    var { spawn, join, Finish } = task;
+
+    var out = document.getElementById("out");
+
+    spawn(function() {
+        out.innerHTML = "outer task waiting...\n";
+        var x = yield spawn(function() {
+            out.innerHTML += "inner task working...\n";
+            out.innerHTML += "inner task finishing...\n";
+            yield Finish(42);
+        });
+        out.innerHTML += "outer task resuming...\n";
+        out.innerHTML += "inner task produced " + x + "\n";
+    });
+}
+</script>
+<body onload="go()">
+<pre style="border: solid 1px black; width: 300px; height: 200px;" id="out">
+</pre>
+</body>
+</html>
