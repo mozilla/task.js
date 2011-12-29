@@ -83,6 +83,9 @@ code {
   -webkit-box-shadow: 0 0 5px gray;
   -o-box-shadow: 0 0 5px gray;
   -ms-box-shadow: 0 0 5px gray;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
   box-shadow: 0 0 5px gray;
   padding: 5px 15px;
   margin-bottom: 1em;
