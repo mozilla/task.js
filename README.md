@@ -2,9 +2,9 @@
 
 * *What?*  Cooperative concurrency for [ES6](http://wiki.ecmascript.org/doku.php?id=harmony:proposals)
 * *Why?*   Who says JavaScript I/O has to be ugly?
-* *Where?* [http://dherman.github.com/taskjs](http://dherman.github.com/taskjs)
+* *Where?* [http://taskjs.org](http://taskjs.org)
 * *When?*  As soon as your JS engine supports [generators](http://wiki.ecmascript.org/doku.php?id=harmony:generators)!
-* *How?*   [http://dherman.github.com/taskjs](http://dherman.github.com/taskjs)
+* *How?*   [http://taskjs.org](http://taskjs.org)
 
 task.js provides an **automatic task scheduler** along with a library of first-class, synchronizable
 events, making it easy to do **I/O without callbacks**.
