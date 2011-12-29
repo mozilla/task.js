@@ -12,7 +12,7 @@ events, making it easy to do **I/O without callbacks**.
 With task.js you can write non-blocking I/O in a synchronous style, even with error handling:
 
 ``` javascript
-spawn(function() {
+spawn(function*() {
     try {
         var [foo, bar] = yield join(read("foo.json"),
                                     read("bar.json")).timeout(1000);
@@ -55,15 +55,15 @@ function failure(e) {
 }
 ```
 
-tasks can be a lot simpler and cleaner. And unlike threads, `yield`
-always makes it clear where tasks block.
+...tasks can be a lot simpler and cleaner. And unlike pre-emptive
+threads, `yield` always makes it clear where tasks block.
 
 # Contributing
 
-Currently the best way to contribute is to hang out on IRC: the
+Currently the best way to contribute is to **hang out on IRC**: the
 channel is `#taskjs` on [irc.mozilla.org](http://irc.mozilla.org). Or
 you can always send me email (my Github nick at mozilla.com). And I'm
 always happy to accept pull requests!
 
 If you're looking for interesting things to work on, check out the
-**Issues** button above.
+**[issue tracker](issues)**.
