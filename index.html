@@ -33,13 +33,15 @@
 <h3 id="description">generators + promises = tasks</h3>
 
 <p class="text">
-<a href="http://github.com/dherman/taskjs">task.js</a> makes
+<a href="http://github.com/dherman/taskjs">task.js</a> is an
+experimental library for ES6 that makes
 sequential, blocking I/O simple and beautiful, using the power of
 JavaScript&rsquo;s new <strong>yield</strong> operator.
 </p>
 
 <p class="text">
-Tasks run concurrently like threads, and can block on
+Tasks are interleaved like threads, but they are <strong>cooperative</strong>
+rather than <strong>pre-emptive</strong>: they block on
 <a href="http://wiki.commonjs.org/wiki/Promises/A">promises</a> with
 <strong>yield</strong>. Here&rsquo;s an example
 using <a href="http://jquery.com">jQuery</a>:
