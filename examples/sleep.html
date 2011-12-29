@@ -21,6 +21,9 @@ function go() {
         } catch (e) {
             out.innerHTML += "never mind; " + e.message + "\n";
         }
+        out.innerHTML += "giving scheduler a break\n";
+        yield;
+        out.innerHTML += "and we're back.\n";
         try {
             yield spawn(function() {
                 out.innerHTML += "gonna try something else in a sec\n";
