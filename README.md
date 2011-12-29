@@ -1,6 +1,6 @@
 # task.js
 
-* *What?*  Cooperative concurrency for JS + [generators](https://developer.mozilla.org/en/New_in_JavaScript_1.7).
+* *What?*  Cooperative concurrency for [ES6](http://wiki.ecmascript.org/doku.php?id=harmony:proposals)
 * *Why?*   Who says JavaScript I/O has to be ugly?
 * *Where?* [http://dherman.github.com/taskjs](http://dherman.github.com/taskjs)
 * *When?*  As soon as your JS engine supports [generators](http://wiki.ecmascript.org/doku.php?id=harmony:generators)!
