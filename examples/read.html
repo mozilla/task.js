@@ -1,7 +1,7 @@
 <html>
 <head><title>task.js examples: read</title></head>
-<script type="application/javascript;version=1.8" src="../lib/task.js"></script>
-<script type="application/javascript;version=1.8" src="../lib/task.dom.js"></script>
+<script type="application/javascript" src="../lib/task.js"></script>
+<script type="application/javascript" src="../lib/task.dom.js"></script>
 <script type="application/javascript;version=1.8">
 function go() {
     var { spawn, join, dom: { read } } = task;
@@ -16,6 +16,7 @@ function go() {
             out.innerHTML += "read.html: " + (f2.responseText.length) + "\n";
         } catch (e) {
             e.stack.split(/\n/).forEach(function(line) { console.log(line) });
+            console.log("");
             out.innerHTML = "error: " + e;
         }
     });

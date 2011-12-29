@@ -1,10 +1,9 @@
 <html>
 <head><title>task.js examples: sleep</title></head>
-<script type="application/javascript;version=1.8" src="../lib/task.js"></script>
-<script type="application/javascript;version=1.8" src="../lib/task.dom.js"></script>
+<script type="application/javascript" src="../lib/task.js"></script>
 <script type="application/javascript;version=1.8">
 function go() {
-    var { spawn, dom: { sleep } } = task;
+    var { spawn, choose, sleep } = task;
 
     var out = document.getElementById("out");
 
@@ -14,8 +13,17 @@ function go() {
         out.innerHTML += "woke up!\n";
         try {
             out.innerHTML += "spawning slow worker\n";
-            yield spawn(function() {
+            yield choose(spawn(function() {
                 out.innerHTML += "gonna try to work in a sec\n";
+                yield sleep(1000);
+                out.innerHTML += "ready to work\n";
+            }), sleep(500).then(function() { throw new Error("timed out!") }));
+        } catch (e) {
+            out.innerHTML += "never mind; " + e.message + "\n";
+        }
+        try {
+            yield spawn(function() {
+                out.innerHTML += "gonna try something else in a sec\n";
                 yield sleep(1000);
                 out.innerHTML += "ready to work\n";
             }).timeout(500);
