@@ -66,4 +66,4 @@ you can always send me email (my Github nick at mozilla.com). And I'm
 always happy to accept pull requests!
 
 If you're looking for interesting things to work on, check out the
-**[issue tracker](issues)**.
+**[issue tracker](taskjs/issues)**.
