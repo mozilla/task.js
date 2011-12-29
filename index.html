@@ -1,107 +1,519 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
-
-  <title>task.js</title>
-
-  <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-22002408-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-  </script>
-
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Kreon" />
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #fff;
-      font-family: Georgia, Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #005ecf; /*#e13227;*/ margin-bottom: 3px; font-family: Kreon, serif; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none; color: #005ecf; }
-    h2 { font-size: 1.5em; color: #005ecf; /*#e13227;*/ font-family: Futura, sans-serif; font-weight: normal; }
-    h3 { text-align: center; color: #005ecf; /*#e13227;*/ }
-    a { color: #005ecf; text-decoration: none; /*#e13227;*/ }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-family: Futura, sans-serif; /*font-style: italic;*/ }
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px; -moz-border-radius: .8em; -webkit-border-radius: .8em; }
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; /*font-style: italic;*/ }
-  </style>
+<title>Task.js: Beautiful Concurrency for JavaScript</title>
+<link rel="stylesheet" type="text/css" href="task.css">
+<link rel="stylesheet" type="text/css" href="solarized.css">
 </head>
-
 <body>
-  <a href="http://github.com/dherman/taskjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+<a href="http://github.com/dherman/taskjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
 
-<!--
-    <div class="download">
-      <a href="http://github.com/dherman/taskjs/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/dherman/taskjs/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
--->
+<a href="http://mozilla.org"><img width="118" height="68" style="position: absolute; top: 2; left: 100; border: 0;" src="mozilla.png" alt="Mozilla"</a>
 
-    <h1>
-      <img style="float: left; margin-right: 15px;" width="59" height="64" src="sunburst-clock.jpg" />
-      <a href="http://github.com/dherman/taskjs">task.js</a>
-      <!-- <span class="small">by <a href="http://github.com/dherman">dherman</a></span> -->
-    </h1>
+<div id="contents">
 
-    <div class="description">
-      cooperative concurrency for JS + <a href="https://developer.mozilla.org/en/New_in_JavaScript_1.7">generators</a>
-    </div>
+<div id="header" class="title">
+<img id="logo" src="sunburst-clock.png" width="56" height="64">
+ <a class="title" href="http://github.com/dherman/taskjs">task.js</a>
+</div>
 
-<!--
-<h2>Contact</h2>
-<p>Dave Herman (dherman@mozilla.com)<br/></p>
--->
+<h3 id="description">generators + promises = tasks</h3>
 
-<h2>Documentation</h2>
-<p>read the <a href="doc/api.html">API documentation</a>.</p>
+<p class="text">
+<a href="http://github.com/dherman/taskjs">task.js</a> makes
+sequential, blocking I/O simple and beautiful, using the power of
+JavaScript&rsquo;s new <strong>yield</strong> operator.
+</p>
+
+<p class="text">
+Tasks run concurrently like threads, and can block on
+<a href="http://wiki.commonjs.org/wiki/Promises/A">promises</a> with
+<strong>yield</strong>. Here&rsquo;s an example
+using <a href="http://jquery.com">jQuery</a>:
+</p>
+
+<div class="highlight"><pre><span class="nx">spawn</span><span class="p">(</span><span class="kd">function</span><span class="o">*</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="kr">yield</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#result&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#status&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Download complete.&#39;</span><span class="p">);</span>
+    <span class="kr">yield</span> <span class="nx">status</span><span class="p">.</span><span class="nx">fadeIn</span><span class="p">().</span><span class="nx">promise</span><span class="p">();</span>
+    <span class="kr">yield</span> <span class="nx">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+    <span class="nx">status</span><span class="p">.</span><span class="nx">fadeOut</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+
+<p class="text">
+<a href="http://github.com/dherman/taskjs">task.js</a> works with any
+framework or library that uses the <a href="http://wiki.commonjs.org/wiki/Promises/A">Promises/A</a> spec.
+</p>
+
+<div class="heading title">Quick Start</div>
+
+<p class="text">
+The power of <strong>task.js</strong> comes from ES6 generators, which
+are <strong>currently only available in Firefox</strong>. You can try
+it out in Firefox, although there are a few remaining
+incompatibilities with the current ES6 spec (which is still a work in
+progress).
+</p>
+
+<p class="text">
+Here&rsquo;s a &ldquo;hello world&rdquo; of tasks that will work in Firefox:
+</p>
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;application/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;task.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- &#39;yield&#39; and &#39;let&#39; keywords require version opt-in --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;application/javascript;version=1.8&quot;</span><span class="nt">&gt;</span>
+<span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">let</span> <span class="p">{</span> <span class="nx">spawn</span><span class="p">,</span> <span class="nx">sleep</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">task</span><span class="p">;</span>
+    <span class="nx">spawn</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>      <span class="c1">// Firefox does not yet use the function* syntax</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello...&quot;</span><span class="p">);</span>
+        <span class="kr">yield</span> <span class="nx">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;...world!&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+<p class="text">
+The <code>spawn</code> function takes a generator function and starts
+running it as a concurrently-executed task. Every time the task yields
+a promise, the scheduler blocks the task until the promise is
+fulfilled.
+</p>
+
+<div class="heading title">Tasks</div>
+
+<div class="api-group">
+<div class="api-heading"><strong>function</strong> spawn( f ) <span class="api-type">&rarr; Task</span></div>
+
+<p class="text">
+Creates a new task and automatically starts it.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">f() <span class="api-type">&rarr; generator</span></div>
+<p>
+A function to produce the generator for running the task. The function
+is called with <code>this</code> bound to the new task.
+</p>
+</div> <!-- /api-entry -->
+</div>
 
 
-    <h2>Download</h2>
-    <p>
-      task.js is under development.
-    </p>
-<!--
-    <p>
-      you can download a snapshot in
-      <a href="http://github.com/dherman/taskjs/zipball/master">zip</a> or
-      <a href="http://github.com/dherman/taskjs/tarball/master">tar</a> formats.
-    </p>
--->
-    <p>get the source by running:
-      <pre>$ git clone git://github.com/dherman/taskjs</pre>
-    </p>
+<div class="api-group">
+<div class="api-heading"><strong>class</strong> Task&lt; A &gt; <strong>is</strong> promise&lt; A &gt;</div>
 
-<!--
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/dherman/taskjs">dherman/taskjs</a>
-    </div>
--->
+<p class="text">
+A concurrent and suspendable computation.
+</p>
 
-  </div>
+<div class="api-heading"><span class="api-opt">[</span>new<span class="api-opt">]</span> Task( f )</div>
 
-  
+<div class="api-entry">
+<div class="api-arg-heading">f() <span class="api-type">&rarr; generator</span></div>
+<p>
+A function to produce the generator for running the task. The function
+is called with <code>this</code> bound to the new task.
+</p>
+</div> <!-- /api-entry -->
+
+<div class="api-heading">Task.current() <span class="api-type">&rarr; Task | null</span></div>
+
+<p class="text">Returns the currently executing task, if any.</p>
+
+<div class="api-heading">t.start() <span class="api-type">&rarr; t</span></div>
+
+<p class="text">
+Starts the task. If the task is blocked on a promise, the task will
+not resume executing until the promise is fulfilled. Otherwise, the
+scheduler will resume the task at some point.
+</p>
+
+<div class="api-heading">t.pause() <span class="api-type">&rarr; t</span></div>
+
+<p class="text">
+Pauses the task. Even when the task is ready to resume, it will not
+resume until it is started again. If the task is waiting on a promise
+that becomes fulfilled while the task is paused, its result will not
+be lost; it will be returned whenever the task is started again.
+</p>
+
+<p class="text">
+A task cannot be paused if it is currently running. To pause a running
+task after it reaches its next yield-point, enqueue a callback to
+pause it in a different turn of the event loop:
+</p>
+
+<div class="highlight"><pre><span class="nx">enqueue</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">task</span><span class="p">.</span><span class="nx">pause</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<div class="api-heading">t.isStarted() <span class="api-type">&rarr; boolean</span></div>
+
+<p class="text">Indicates whether the task is started.</p>
+
+<div class="api-heading">t.isRunning() <span class="api-type">&rarr; boolean</span></div>
+
+<p class="text">Indicates whether the task is currently executing.</p>
+
+<div class="api-heading"><strong>inherits from</strong> Promise&lt; A &gt;</div>
+
+<p class="text">
+get, put, call, addCallback, addErrback, addBoth, addCallbacks, timeout
+</p>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>interface</strong> generator</div>
+
+<p class="text">
+An object encapsulating a suspendable computation. In ES6, generators
+can be conveniently created using the <strong>yield</strong> operator.
+</p>
+
+<div class="api-heading">g.send( result ) <span class="api-type">&rarr; promise&lt; any &gt; | falsey</span></div>
+
+<p class="text">
+Resumes the computation to its next <strong>yield</strong> point or
+completion, whichever comes first. The computation should yield either
+a promise, indicating that the computation is blocked until the
+promise is fulfilled, or a falsey value, indicating that the
+computation is immediately ready to resume.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">result <span class="api-type">: any</span></div>
+<p>
+The result to resume the previous <strong>yield</strong> with.
+</p>
+</div> <!-- /api-entry -->
+
+<div class="api-heading">g.throw( error ) <span class="api-type">&rarr; promise&lt; any &gt; | falsey</span></div>
+
+<p class="text">
+Resumes the computation by throwing an error. The computation runs to
+its next <strong>yield</strong> point or completion, whichever comes
+first. The computation should yield either a promise, indicating that
+the computation is blocked until the promise is fulfilled, or a falsey
+value, indicating that the computation is immediately ready to resume.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">error <span class="api-type">: any</span></div>
+<p>
+The error to throw in the resumed computation.
+</p>
+</div> <!-- /api-entry -->
+
+<div class="api-heading">g.close() <span class="api-type">&rarr; any</span></div>
+
+<p class="text">
+Cancels the computation, executing any live <code>finally</code>
+blocks remaining in the generator. Closing the computation should not
+expect to be able to return any more promises; they will be ignored by
+the scheduler, which will consider the computation to be terminated.
+</p>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>class</strong> TaskResult&lt; A &gt;</div>
+
+<p class="text">
+ES6 allows generator functions to return a value, but the Firefox
+JavaScript engine (the only that currently implements generators) does
+not yet allow this. To produce a result value from a task, throw an
+instance of this class.
+</p>
+
+<div class="api-heading">r.value <span class="api-type">: A</span></div>
+
+<p class="text">
+The task result value.
+</p>
+</div> <!-- /api-group -->
+
+
+<div class="heading title">Promises</div>
+
+<div class="api-group">
+<div class="api-heading"><strong>interface</strong> promise&lt; A &gt;</div>
+
+<p class="text">
+An object representing an &ldquo;eventual value,&rdquo;
+i.e., a value that may not be ready yet but will be provided at some
+point in the future.
+</p>
+
+<div class="api-heading">p.then( <span class="api-opt">[</span> onResolve <span class="api-opt">[</span>, onError <span class="api-opt">[</span>, onProgress <span class="api-opt">]</span> <span class="api-opt">]</span> <span class="api-opt">]</span> ) <span class="api-type">&rarr; promise&lt; B &gt;</span></div>
+
+<p class="text">
+Registers callbacks to be called by the promise.
+</p>
+
+<div class="api-entry">
+
+<div class="api-arg-heading">onResolve( result ) <span class="api-type">&rarr; B</span></div>
+
+<p>
+Callback to be called by the promise when it produces its result.
+</p>
+
+<p>
+<span class="api-arg">result</span> <span class="api-type">: A</span>
+The result value produced by the promise.
+</p>
+
+<div class="api-arg-heading">onError( error ) <span class="api-type">&rarr; B</span></div>
+
+<p>
+Callback to be called by the promise when it throws an error while trying to produce its result.
+</p>
+
+<p>
+<span class="api-arg">error</span> <span class="api-type">: any</span>
+The error thrown while attempting to produce a result.
+</p>
+
+<div class="api-arg-heading">onProgress() <span class="api-type">&rarr; any</span></div>
+
+<p>
+Callback to be called by the promise while making progress towards producing its result.
+</p>
+</div> <!-- /api-entry -->
+
+<div class="api-heading">p.cancel() <span class="api-type">&rarr; any</span></div>
+
+<p class="text">
+Cancel the retrieval of the promise&rsquo;s value. If the promise is already fulfilled, this operation does nothing.
+</p>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>function</strong> now( value ) <span class="api-type">&rarr; promise&lt; A &gt;</span></div>
+<p class="text">
+Converts an ordinary value into a fulfilled promise.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">value <span class="api-type">: any</span></div>
+<p>
+The promise&rsquo;s resolved value.
+</p>
+</div>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>function</strong> never() <span class="api-type">&rarr; promise&lt; any &gt;</span></div>
+<p class="text">
+Produces a promise that is never fulfilled.
+</p>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>function</strong> join( promise ... ) <span class="api-type">&rarr; promise&lt; [A] &gt;</span></div>
+<p class="text">
+Produces a promise that is resolved when all the given promises are
+resolved. The resolved value is an array of each of the resolved
+values of the given promises.
+</p>
+
+<p class="text">
+If any of the promises is rejected, the joined promise is rejected
+with the same error, and any remaining unfulfilled promises are
+cancelled.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">promise <span class="api-type">: promise&lt; A &gt;</span></div>
+<p>
+A promise to join.
+</p>
+</div>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>function</strong> choose( promise ... ) <span class="api-type">&rarr; promise&lt; A &gt;</span></div>
+<p class="text">
+Produces a promise that is fulfilled when any one of the given
+promises is fulfilled. As soon as one of the promises is fulfilled,
+whether by being resolved or rejected, all the other promises are
+cancelled.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">promise <span class="api-type">: promise&lt; A &gt;</span></div>
+<p>
+A promise to choose from.
+</p>
+</div>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>function</strong> sleep( delay<span class="api-opt">[</span>, compensate=<strong>false</strong> <span class="api-opt">]</span> ) <span class="api-type">&rarr; promise&lt; uint32 &gt;</span></div>
+
+<p class="text">
+Produces a promise that is resolved when a given amount of time
+elapses, using the builtin global <code>setTimeout</code> function.
+</p>
+
+<p class="text">
+The promise&rsquo;s resolved value is the actual number of milliseconds
+elapsed since the promise was created.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">delay <span class="api-type">: uint32</span></div>
+<p>
+The number of milliseconds to sleep for.
+</p>
+
+<div class="api-arg-heading">compensate <span class="api-type">: boolish</span></div>
+<p>
+Indicates whether to compensate for imprecision in the host platform
+by continuing to sleep if the timeout completes before the indicated
+number of milliseconds have elapsed.
+</p>
+</div>
+</div> <!-- /api-group -->
+
+<div class="heading title">Schedulers</div>
+
+<div class="api-group">
+<div class="api-heading"><strong>interface</strong> scheduler</div>
+
+<p class="text">
+An object providing a scheduling policy. A scheduler maintains an
+internal collection of scheduled tasks and decides which task to
+choose next for execution.
+</p>
+
+<div class="api-heading">s.choose() <span class="api-type">&rarr; Task</span></div>
+
+<p class="text">
+Chooses a scheduled task for the runtime to execute next, removing it
+from the internal collection of scheduled tasks.
+</p>
+
+<div class="api-heading">s.schedule( task ) <span class="api-type">&rarr; any</span></div>
+
+<p class="text">
+Adds a task to the scheduler&rsquo;s internal collection of scheduled
+tasks. The task is guaranteed not to be currently scheduled.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">task <span class="api-type">: Task</span></div>
+<p>
+The task to schedule.
+</p>
+</div>
+
+<div class="api-heading">s.unschedule( task ) <span class="api-type">&rarr; any</span></div>
+
+<p class="text">
+Removes a task from the scheduler&rsquo;s internal collection of scheduled
+tasks. The task may or may not already be scheduled.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">task <span class="api-type">: Task</span></div>
+<p>
+The task to unschedule.
+</p>
+</div>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>function</strong> currentScheduler() <span class="api-type">&rarr; scheduler</span></div>
+
+<p class="text">
+Returns the currently-installed system scheduler.
+</p>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>function</strong> setCurrentScheduler( scheduler ) <span class="api-type">&rarr; void</span></div>
+
+<p class="text">
+Installs a new system scheduler. Any existing tasks will continue to
+be scheduled via the scheduler they were created with, but new tasks
+will be associated with the new scheduler.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">scheduler <span class="api-type">: scheduler</span></div>
+<p>
+The new scheduler.
+</p>
+</div>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>class</strong> RandomScheduler <strong>is</strong> scheduler</div>
+
+<p class="text">
+A scheduler that chooses tasks randomly using <code>Math.random</code>.
+</p>
+</div> <!-- /api-group -->
+
+
+<div class="heading title">Internal</div>
+
+<div class="api-group">
+<div class="api-heading"><strong>class</strong> Deferred&lt; A &gt; <strong>is</strong> promise&lt; A &gt;</div>
+
+<p class="text">
+A low-level promise that can be manually fulfilled.
+</p>
+
+<div class="api-heading"><span class="api-opt">[</span>new<span class="api-opt">]</span> Deferred( <span class="api-opt">[</span> cancel <span class="api-opt">]</span> )</div>
+
+<div class="api-heading">d.resolve( result ) <span class="api-type">&rarr; void</span></div>
+
+<div class="api-heading">d.reject( error ) <span class="api-type">&rarr; void</span></div>
+
+<div class="api-heading"><strong>inherits from</strong> Promise&lt; A &gt;</div>
+
+<p class="text">
+get, put, call, addCallback, addErrback, addBoth, addCallbacks, timeout
+</p>
+</div> <!-- /api-group -->
+
+
+<div class="api-group">
+<div class="api-heading"><strong>class</strong> Promise&lt; A &gt;</div>
+
+<p class="text">
+A partial implementation of a promise, providing utility methods
+common in popular promise implementations. To implement the full
+promise API, instances must be given <code>then</code>
+and <code>cancel</code> methods.
+</p>
+
+<div class="api-heading"><span class="api-opt">[</span>new<span class="api-opt">]</span> Promise()</div>
+
+<div class="api-heading">p.get( key )</div>
+
+<div class="api-heading">p.put( key, val )</div>
+
+<div class="api-heading">p.call( key, ...args )</div>
+
+<div class="api-heading">p.addCallback( callback )</div>
+
+<div class="api-heading">p.addErrback( errback )</div>
+
+<div class="api-heading">p.addBoth( callback )</div>
+
+<div class="api-heading">p.addCallbacks( callback, errback )</div>
+
+<div class="api-heading">p.timeout( delay <span class="api-opt">[</span>, compensate=<strong>false</strong> <span class="api-opt">]</span> )</div>
+</div> <!-- /api-group -->
+
+</div> <!-- /contents -->
+
 </body>
 </html>
