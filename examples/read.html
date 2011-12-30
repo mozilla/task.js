@@ -1,10 +1,37 @@
 <html>
 <head><title>task.js examples: read</title></head>
 <script type="application/javascript" src="../lib/task.js"></script>
-<script type="application/javascript" src="../lib/task.dom.js"></script>
 <script type="application/javascript;version=1.8">
+var { Deferred } = task;
+
+// promise version of XMLHttpRequest
+function read(url, method) {
+    method = method || "GET";
+    var xhr = new XMLHttpRequest();
+    var deferred = new Deferred();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status >= 400) {
+                var e = new Error(xhr.statusText);
+                e.status = xhr.status;
+                deferred.reject(e);
+            } else {
+                deferred.resolve({
+                    status: xhr.status,
+                    statusText: xhr.statusText,
+                    responseText: xhr.responseText,
+                    responseXML: xhr.responseXML
+                });
+            }
+        }
+    };
+    xhr.open(method, url, true);
+    xhr.send();
+    return deferred.promise;
+}
+
 function go() {
-    var { spawn, join, dom: { read } } = task;
+    var { spawn, join } = task;
 
     var out = document.getElementById("out");
 
