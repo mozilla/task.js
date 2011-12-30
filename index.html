@@ -395,7 +395,7 @@ number of milliseconds have elapsed.
 </div>
 </div> <!-- /api-group -->
 
-<div class="heading title">Schedulers</div>
+<div class="heading title">Scheduling</div>
 
 <div class="api-group">
 <div class="api-heading"><strong>interface</strong> scheduler</div>
@@ -473,6 +473,21 @@ The new scheduler.
 <p class="text">
 A scheduler that chooses tasks randomly using <code>Math.random</code>.
 </p>
+</div> <!-- /api-group -->
+
+<div class="api-group">
+<div class="api-heading"><strong>function</strong> enqueue( f ) <span class="api-type">&rarr; void</span></div>
+
+<p class="text">
+Calls the given function in a separate turn of the event loop.
+</p>
+
+<div class="api-entry">
+<div class="api-arg-heading">f() <span class="api-type">&rarr; any</span></div>
+<p>
+The function to call in another event loop turn.
+</p>
+</div>
 </div> <!-- /api-group -->
 
 
