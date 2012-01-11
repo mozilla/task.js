@@ -1,19 +1,20 @@
 <html>
 <head><title>task.js examples: finish</title></head>
-<script type="application/javascript;version=1.8" src="../lib/task.js"></script>
-<script type="application/javascript;version=1.8" src="../lib/task.dom.js"></script>
+<script type="application/javascript" src="../lib/task.js"></script>
 <script type="application/javascript;version=1.8">
 function go() {
-    var { spawn, join, Finish } = task;
+    var { spawn, join, TaskResult } = task;
 
     var out = document.getElementById("out");
 
     spawn(function() {
         out.innerHTML = "outer task waiting...\n";
         var x = yield spawn(function() {
+            // force this to be a generator. in ES6 we won't have to do this
+            if (false) yield;
             out.innerHTML += "inner task working...\n";
             out.innerHTML += "inner task finishing...\n";
-            yield Finish(42);
+            throw new TaskResult(42);
         });
         out.innerHTML += "outer task resuming...\n";
         out.innerHTML += "inner task produced " + x + "\n";
