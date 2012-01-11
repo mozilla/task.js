@@ -1,5 +1,5 @@
 <html>
-<head><title>task.js examples: finish</title></head>
+<head><title>task.js examples: returning a task result</title></head>
 <script type="application/javascript" src="../lib/task.js"></script>
 <script type="application/javascript;version=1.8">
 function go() {
@@ -14,6 +14,7 @@ function go() {
             if (false) yield;
             out.innerHTML += "inner task working...\n";
             out.innerHTML += "inner task finishing...\n";
+            // in ES6 we'll just be able to return 42
             throw new TaskResult(42);
         });
         out.innerHTML += "outer task resuming...\n";
