@@ -61,7 +61,7 @@ threads, `yield` always makes it clear where tasks block.
 # Contributing
 
 Currently the best way to contribute is to **hang out on IRC**: the
-channel is `#taskjs` on [irc.mozilla.org](http://irc.mozilla.org). Or
+channel is `#task.js` on [irc.mozilla.org](http://irc.mozilla.org). Or
 you can always send me email (my Github nick at mozilla.com). And I'm
 always happy to accept pull requests!
 
