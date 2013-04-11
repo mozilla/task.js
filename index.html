@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<a href="http://github.com/mozilla/task.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+<a href="https://github.com/mozilla/task.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 
 <a href="http://mozilla.org"><img width="118" height="68" style="position: absolute; top: 2; left: 100; border: 0;" src="mozilla.png" alt="Mozilla"</a>
 
@@ -101,7 +101,7 @@ fulfilled.
 <div class="heading title">Tasks</div>
 
 <div class="api-group">
-<div class="api-heading"><strong>function</strong> spawn( f ) <span class="api-type">&rarr; Task</span></div>
+<div class="api-heading"><strong>function</strong> <a id="spawn">spawn</a>( f ) <span class="api-type">&rarr; Task</span></div>
 
 <p class="text">
 Creates a new task and automatically starts it.
@@ -118,7 +118,7 @@ is called with <code>this</code> bound to the new task.
 
 
 <div class="api-group">
-<div class="api-heading"><strong>class</strong> Task&lt; A &gt; <strong>is</strong> promise&lt; A &gt;</div>
+<div class="api-heading"><strong>class</strong> <a id="Task">Task</a>&lt; A &gt; <strong>is</strong> promise&lt; A &gt;</div>
 
 <p class="text">
 A concurrent and suspendable computation.
@@ -134,11 +134,11 @@ is called with <code>this</code> bound to the new task.
 </p>
 </div> <!-- /api-entry -->
 
-<div class="api-heading">Task.current() <span class="api-type">&rarr; Task | null</span></div>
+<div class="api-heading"><a id="current">Task.current</a>() <span class="api-type">&rarr; Task | null</span></div>
 
 <p class="text">Returns the currently executing task, if any.</p>
 
-<div class="api-heading">t.start() <span class="api-type">&rarr; t</span></div>
+<div class="api-heading"><a id="start">t.start</a>() <span class="api-type">&rarr; t</span></div>
 
 <p class="text">
 Starts the task. If the task is blocked on a promise, the task will
@@ -146,7 +146,7 @@ not resume executing until the promise is fulfilled. Otherwise, the
 scheduler will resume the task at some point.
 </p>
 
-<div class="api-heading">t.pause() <span class="api-type">&rarr; t</span></div>
+<div class="api-heading"><a id="pause">t.pause</a>() <span class="api-type">&rarr; t</span></div>
 
 <p class="text">
 Pauses the task. Even when the task is ready to resume, it will not
@@ -167,11 +167,11 @@ pause it in a different turn of the event loop:
 </pre></div>
 
 
-<div class="api-heading">t.isStarted() <span class="api-type">&rarr; boolean</span></div>
+<div class="api-heading"><a id="isStarted">t.isStarted</a>() <span class="api-type">&rarr; boolean</span></div>
 
 <p class="text">Indicates whether the task is started.</p>
 
-<div class="api-heading">t.isRunning() <span class="api-type">&rarr; boolean</span></div>
+<div class="api-heading"><a id="isRunning">t.isRunning</a>() <span class="api-type">&rarr; boolean</span></div>
 
 <p class="text">Indicates whether the task is currently executing.</p>
 
@@ -183,14 +183,14 @@ get, put, call, addCallback, addErrback, addBoth, addCallbacks, timeout
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>interface</strong> generator</div>
+<div class="api-heading"><strong>interface</strong> <a id="generator">generator</a></div>
 
 <p class="text">
 An object encapsulating a suspendable computation. In ES6, generators
 can be conveniently created using the <strong>yield</strong> operator.
 </p>
 
-<div class="api-heading">g.send( result ) <span class="api-type">&rarr; promise&lt; any &gt; | falsey</span></div>
+<div class="api-heading"><a id="send">g.send</a>( result ) <span class="api-type">&rarr; promise&lt; any &gt; | falsey</span></div>
 
 <p class="text">
 Resumes the computation to its next <strong>yield</strong> point or
@@ -207,7 +207,7 @@ The result to resume the previous <strong>yield</strong> with.
 </p>
 </div> <!-- /api-entry -->
 
-<div class="api-heading">g.throw( error ) <span class="api-type">&rarr; promise&lt; any &gt; | falsey</span></div>
+<div class="api-heading"><a id="throw">g.throw</a>( error ) <span class="api-type">&rarr; promise&lt; any &gt; | falsey</span></div>
 
 <p class="text">
 Resumes the computation by throwing an error. The computation runs to
@@ -224,7 +224,7 @@ The error to throw in the resumed computation.
 </p>
 </div> <!-- /api-entry -->
 
-<div class="api-heading">g.close() <span class="api-type">&rarr; any</span></div>
+<div class="api-heading"><a id="close">g.close</a>() <span class="api-type">&rarr; any</span></div>
 
 <p class="text">
 Cancels the computation, executing any live <code>finally</code>
@@ -235,7 +235,7 @@ the scheduler, which will consider the computation to be terminated.
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>class</strong> TaskResult&lt; A &gt;</div>
+<div class="api-heading"><strong>class</strong> <a id="TaskResult">TaskResult</a>&lt; A &gt;</div>
 
 <p class="text">
 ES6 allows generator functions to return a value, but the Firefox
@@ -244,7 +244,7 @@ not yet allow this. To produce a result value from a task, throw an
 instance of this class.
 </p>
 
-<div class="api-heading">r.value <span class="api-type">: A</span></div>
+<div class="api-heading"><a id="value">r.value</a> <span class="api-type">: A</span></div>
 
 <p class="text">
 The task result value.
@@ -255,7 +255,7 @@ The task result value.
 <div class="heading title">Promises</div>
 
 <div class="api-group">
-<div class="api-heading"><strong>interface</strong> promise&lt; A &gt;</div>
+<div class="api-heading"><strong>interface</strong> <a id="promise">promise</a>&lt; A &gt;</div>
 
 <p class="text">
 An object representing an &ldquo;eventual value,&rdquo;
@@ -263,7 +263,7 @@ i.e., a value that may not be ready yet but will be provided at some
 point in the future.
 </p>
 
-<div class="api-heading">p.then( <span class="api-opt">[</span> onResolve <span class="api-opt">[</span>, onError <span class="api-opt">[</span>, onProgress <span class="api-opt">]</span> <span class="api-opt">]</span> <span class="api-opt">]</span> ) <span class="api-type">&rarr; promise&lt; B &gt;</span></div>
+<div class="api-heading"><a id="then">p.then</a>( <span class="api-opt">[</span> onResolve <span class="api-opt">[</span>, onError <span class="api-opt">[</span>, onProgress <span class="api-opt">]</span> <span class="api-opt">]</span> <span class="api-opt">]</span> ) <span class="api-type">&rarr; promise&lt; B &gt;</span></div>
 
 <p class="text">
 Registers callbacks to be called by the promise.
@@ -300,7 +300,7 @@ Callback to be called by the promise while making progress towards producing its
 </p>
 </div> <!-- /api-entry -->
 
-<div class="api-heading">p.cancel() <span class="api-type">&rarr; any</span></div>
+<div class="api-heading"><a id="cancel">p.cancel</a>() <span class="api-type">&rarr; any</span></div>
 
 <p class="text">
 Cancel the retrieval of the promise&rsquo;s value. If the promise is already fulfilled, this operation does nothing.
@@ -308,7 +308,7 @@ Cancel the retrieval of the promise&rsquo;s value. If the promise is already ful
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>function</strong> now( value ) <span class="api-type">&rarr; promise&lt; A &gt;</span></div>
+<div class="api-heading"><strong>function</strong> <a id="now">now</a>( value ) <span class="api-type">&rarr; promise&lt; A &gt;</span></div>
 <p class="text">
 Converts an ordinary value into a fulfilled promise.
 </p>
@@ -322,14 +322,14 @@ The promise&rsquo;s resolved value.
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>function</strong> never() <span class="api-type">&rarr; promise&lt; any &gt;</span></div>
+<div class="api-heading"><strong>function</strong> <a id="never">never</a>() <span class="api-type">&rarr; promise&lt; any &gt;</span></div>
 <p class="text">
 Produces a promise that is never fulfilled.
 </p>
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>function</strong> join( promise ... ) <span class="api-type">&rarr; promise&lt; [A] &gt;</span></div>
+<div class="api-heading"><strong>function</strong> <a id="join">join</a>( promise ... ) <span class="api-type">&rarr; promise&lt; [A] &gt;</span></div>
 <p class="text">
 Produces a promise that is resolved when all the given promises are
 resolved. The resolved value is an array of each of the resolved
@@ -351,7 +351,7 @@ A promise to join.
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>function</strong> choose( promise ... ) <span class="api-type">&rarr; promise&lt; A &gt;</span></div>
+<div class="api-heading"><strong>function</strong> <a id="choose">choose</a>( promise ... ) <span class="api-type">&rarr; promise&lt; A &gt;</span></div>
 <p class="text">
 Produces a promise that is fulfilled when any one of the given
 promises is fulfilled. As soon as one of the promises is fulfilled,
@@ -368,7 +368,7 @@ A promise to choose from.
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>function</strong> sleep( delay<span class="api-opt">[</span>, compensate=<strong>false</strong> <span class="api-opt">]</span> ) <span class="api-type">&rarr; promise&lt; uint32 &gt;</span></div>
+<div class="api-heading"><strong>function</strong> <a id="sleep">sleep</a>( delay<span class="api-opt">[</span>, compensate=<strong>false</strong> <span class="api-opt">]</span> ) <span class="api-type">&rarr; promise&lt; uint32 &gt;</span></div>
 
 <p class="text">
 Produces a promise that is resolved when a given amount of time
@@ -398,7 +398,7 @@ number of milliseconds have elapsed.
 <div class="heading title">Scheduling</div>
 
 <div class="api-group">
-<div class="api-heading"><strong>interface</strong> scheduler</div>
+<div class="api-heading"><strong>interface</strong> <a id="scheduler">scheduler</a></div>
 
 <p class="text">
 An object providing a scheduling policy. A scheduler maintains an
@@ -406,14 +406,14 @@ internal collection of scheduled tasks and decides which task to
 choose next for execution.
 </p>
 
-<div class="api-heading">s.choose() <span class="api-type">&rarr; Task</span></div>
+<div class="api-heading"><a id="dot-choose">s.choose</a>() <span class="api-type">&rarr; Task</span></div>
 
 <p class="text">
 Chooses a scheduled task for the runtime to execute next, removing it
 from the internal collection of scheduled tasks.
 </p>
 
-<div class="api-heading">s.schedule( task ) <span class="api-type">&rarr; any</span></div>
+<div class="api-heading"><a id="schedule">s.schedule</a>( task ) <span class="api-type">&rarr; any</span></div>
 
 <p class="text">
 Adds a task to the scheduler&rsquo;s internal collection of scheduled
@@ -427,7 +427,7 @@ The task to schedule.
 </p>
 </div>
 
-<div class="api-heading">s.unschedule( task ) <span class="api-type">&rarr; any</span></div>
+<div class="api-heading"><a id="unschedule">s.unschedule</a>( task ) <span class="api-type">&rarr; any</span></div>
 
 <p class="text">
 Removes a task from the scheduler&rsquo;s internal collection of scheduled
@@ -443,7 +443,7 @@ The task to unschedule.
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>function</strong> currentScheduler() <span class="api-type">&rarr; scheduler</span></div>
+<div class="api-heading"><strong>function</strong> <a id="currentScheduler">currentScheduler</a>() <span class="api-type">&rarr; scheduler</span></div>
 
 <p class="text">
 Returns the currently-installed system scheduler.
@@ -451,7 +451,7 @@ Returns the currently-installed system scheduler.
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>function</strong> setCurrentScheduler( scheduler ) <span class="api-type">&rarr; void</span></div>
+<div class="api-heading"><strong>function</strong> <a id="setCurrentScheduler">setCurrentScheduler</a>( scheduler ) <span class="api-type">&rarr; void</span></div>
 
 <p class="text">
 Installs a new system scheduler. Any existing tasks will continue to
@@ -468,7 +468,7 @@ The new scheduler.
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>class</strong> RandomScheduler <strong>is</strong> scheduler</div>
+<div class="api-heading"><strong>class</strong> <a id="RandomScheduler">RandomScheduler</a> <strong>is</strong> scheduler</div>
 
 <p class="text">
 A scheduler that chooses tasks randomly using <code>Math.random</code>.
@@ -476,7 +476,7 @@ A scheduler that chooses tasks randomly using <code>Math.random</code>.
 </div> <!-- /api-group -->
 
 <div class="api-group">
-<div class="api-heading"><strong>function</strong> enqueue( f ) <span class="api-type">&rarr; void</span></div>
+<div class="api-heading"><strong>function</strong> <a id="enqueue">enqueue</a>( f ) <span class="api-type">&rarr; void</span></div>
 
 <p class="text">
 Calls the given function in a separate turn of the event loop.
@@ -494,7 +494,7 @@ The function to call in another event loop turn.
 <div class="heading title">Internal</div>
 
 <div class="api-group">
-<div class="api-heading"><strong>class</strong> Deferred&lt; A &gt; <strong>is</strong> promise&lt; A &gt;</div>
+<div class="api-heading"><strong>class</strong> <a id="Deferred">Deferred</a>&lt; A &gt; <strong>is</strong> promise&lt; A &gt;</div>
 
 <p class="text">
 A low-level promise that can be manually fulfilled.
@@ -502,9 +502,9 @@ A low-level promise that can be manually fulfilled.
 
 <div class="api-heading"><span class="api-opt">[</span>new<span class="api-opt">]</span> Deferred( <span class="api-opt">[</span> cancel <span class="api-opt">]</span> )</div>
 
-<div class="api-heading">d.resolve( result ) <span class="api-type">&rarr; void</span></div>
+<div class="api-heading"><a id="resolve">d.resolve</a>( result ) <span class="api-type">&rarr; void</span></div>
 
-<div class="api-heading">d.reject( error ) <span class="api-type">&rarr; void</span></div>
+<div class="api-heading"><a id="reject">d.reject</a>( error ) <span class="api-type">&rarr; void</span></div>
 
 <div class="api-heading"><strong>inherits from</strong> Promise&lt; A &gt;</div>
 
@@ -515,7 +515,7 @@ get, put, call, addCallback, addErrback, addBoth, addCallbacks, timeout
 
 
 <div class="api-group">
-<div class="api-heading"><strong>class</strong> Promise&lt; A &gt;</div>
+<div class="api-heading"><strong>class</strong> <a id="Promise">Promise</a>&lt; A &gt;</div>
 
 <p class="text">
 A partial implementation of a promise, providing utility methods
@@ -526,21 +526,21 @@ and <code>cancel</code> methods.
 
 <div class="api-heading"><span class="api-opt">[</span>new<span class="api-opt">]</span> Promise()</div>
 
-<div class="api-heading">p.get( key )</div>
+<div class="api-heading"><a id="get">p.get</a>( key )</div>
 
-<div class="api-heading">p.put( key, val )</div>
+<div class="api-heading"><a id="put">p.put</a>( key, val )</div>
 
-<div class="api-heading">p.call( key, ...args )</div>
+<div class="api-heading"><a id="call">p.call</a>( key, ...args )</div>
 
-<div class="api-heading">p.addCallback( callback )</div>
+<div class="api-heading"><a id="addCallback">p.addCallback</a>( callback )</div>
 
-<div class="api-heading">p.addErrback( errback )</div>
+<div class="api-heading"><a id="addErrback">p.addErrback</a>( errback )</div>
 
-<div class="api-heading">p.addBoth( callback )</div>
+<div class="api-heading"><a id="addBoth">p.addBoth</a>( callback )</div>
 
-<div class="api-heading">p.addCallbacks( callback, errback )</div>
+<div class="api-heading"><a id="addCallbacks">p.addCallbacks</a>( callback, errback )</div>
 
-<div class="api-heading">p.timeout( delay <span class="api-opt">[</span>, compensate=<strong>false</strong> <span class="api-opt">]</span> )</div>
+<div class="api-heading"><a id="timeout">p.timeout</a>( delay <span class="api-opt">[</span>, compensate=<strong>false</strong> <span class="api-opt">]</span> )</div>
 </div> <!-- /api-group -->
 
 </div> <!-- /contents -->
