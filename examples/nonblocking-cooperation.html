@@ -1,0 +1,44 @@
+<html>
+<head><title>task.js examples: non-blocking cooperation</title></head>
+<script type="application/javascript" src="../lib/task.js"></script>
+<script type="application/javascript;version=1.8">
+function go() {
+    var { spawn, sleep } = task;
+
+    var out = document.getElementById("out");
+
+    spawn(function() {
+        out.innerHTML += "2 Brett: I'm starting first.\n";
+        yield sleep(2500);
+        out.innerHTML += "5 Brett: You started first but\n\tstill beat me! Wow!\n";
+    });
+    // Code after the above spawn() will start executing
+    //    immediately (even before the above spawn's callback begins), so this
+    //    text 1 will be the first to be output.
+    out.innerHTML += '1 THE RACE\n';
+
+    //   Code now continues on, where we can add another spawn call to
+    //     cooperate/interleave with the first. Its contents will not yet
+    //     execute
+    spawn(function() {
+        out.innerHTML += "3 Usain Bolt: I'm starting second.\n";
+        yield sleep(500);
+        out.innerHTML += "4 Usain Bolt: I win!\n";
+    });
+
+    //   Now that this script block is finished, the first spawn callback can begin.
+    //   It will add text 2 then stop on its 2500ms sleep yield, giving a chance for the
+    //   second spawn callback to begin. The second spawn callback begins, adding text 3, and it then
+    //   stops on its 500ms sleep yield. Since the other spawn callback is still busy with the 2500ms sleep,
+    //   (and since there is no other code such as in any other spawns waiting to
+    //   execute), the script will do nothing until the 500ms are up and then text 4 will be added.
+    //   Since the 2500ms is still going on at this point and there is no other code waiting, the
+    //   script will do nothing until the 2500ms are finished at which point execution can continue to let
+    //   text 5 finally be added.
+}
+</script>
+<body onload="go()">
+<pre style="border: solid 1px black; width: 300px; height: 200px;" id="out">
+</pre>
+</body>
+</html>
