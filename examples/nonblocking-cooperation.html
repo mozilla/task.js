@@ -10,7 +10,7 @@ function go() {
     spawn(function() {
         out.innerHTML += "2 Brett: I'm starting first.\n";
         yield sleep(2500);
-        out.innerHTML += "5 Brett: You started first but\n\tstill beat me! Wow!\n";
+        out.innerHTML += "5 Brett: You started second but\n\tstill beat me! Wow!\n";
     });
     // Code after the above spawn() will start executing
     //    immediately (even before the above spawn's callback begins), so this
