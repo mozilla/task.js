@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Task.js tests</title>
+    <link rel="stylesheet" href="vendor/mocha/mocha.css">
+</head>
+<body>
+    <div id="mocha"></div>
+    <script src="../lib/task.js"></script>
+    <script src="vendor/mocha/mocha.js"></script>
+    <script src="vendor/expect/expect.js"></script>
+    <script src="vendor/rsvp/rsvp.js"></script>
+    <script>
+        mocha.setup('bdd');
+    </script>
+    <script src="assets/firefox-tests.js" type="application/javascript;version=1.8"></script>
+    <script>
+        mocha.checkLeaks();
+        mocha.globals(['task', 'spawn', 'RSVP', 'Promise']);
+        mocha.run();
+    </script>
+</body>
+</html>
